@@ -16,6 +16,9 @@ public class ApplicationUser implements UserDetails {
     private final boolean isCredentialsNonExpired;
     private final boolean isEnabled;
 
+
+
+
     public ApplicationUser(String username,
                            String password,
                            Set<? extends GrantedAuthority> grantedAuthorities,

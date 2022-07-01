@@ -1,6 +1,7 @@
 package com.example.demo.student;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -10,6 +11,9 @@ import java.util.List;
 @RequestMapping("management/api/v1/students")
 public class StudentManagementController {
 
+    /*We need to add
+    @EnableGlobalMethodSecurity(prePostEnabled = true)
+    in ApplicationSecurityConfig*/
     private static final List<Student> STUDENTS = Arrays.asList(
             new Student(1, "James Bond"),
             new Student(2, "Maria Jones"),

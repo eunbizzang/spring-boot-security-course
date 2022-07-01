@@ -44,8 +44,20 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // the order that you define in here does matter.
         http
                 .csrf().disable()
+
+                /*Cross Site Request Forgery
+                : The action of forging a copy or imitation of a document, signature, banknote, or work of art.
+
+                * When to use CSRF protection(docs.spring.io)
+
+                Recommendation is to use CSRF protection for any request that could be processed by a browser by normal users.
+                If you are only creating a service that is used by non-browser clients, you will likely want to disable CSRF protection.
+                * if you are using postman use Interceptor which allows us to use Cookies.(X-XSRF-TOKEN)
+                */
+
                 .sessionManagement()
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
